@@ -1,0 +1,8 @@
+Twisted==18.7.0
+Scrapy==1.5.1
+redis==3.0.1
+scrapy-redis==0.6.8
+scrapy-redis-bloomfilter==0.7.0
+scrapyd==1.2.0
+scrapyd-client==1.1.0
+scrapydweb==0.9.9

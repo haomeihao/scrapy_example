@@ -1,0 +1,11 @@
+*.pyc
+.idea
+build
+dbs
+eggs
+logs
+output
+project.egg-info
+python_example
+requests_example
+scrapy_redis
