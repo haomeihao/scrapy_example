@@ -79,6 +79,6 @@ redis key 相关的配置在 scrapy_example/redis_defaults.py
 ``` 
   error: Microsoft Visual C++ 14.0 is required. Get it with "Microsoft Visual C+
 + Build Tools": https://visualstudio.microsoft.com/downloads/
-还没时间解决
+解决方案: https://blog.csdn.net/weixin_42057852/article/details/80857948
 
 ```
