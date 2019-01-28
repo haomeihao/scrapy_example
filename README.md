@@ -1,11 +1,11 @@
 [TOC]
-## Python爬虫框架Scrapy
+## 一、Python爬虫框架Scrapy
 ``` 
 Hello Scrapy, I use Python.
 ```
 ![背景](file/background.jpg)
 
-### 一、项目依赖
+### 1. 项目依赖
 #### 1.1 单机爬虫依赖
 ```
 1) python 3.5+ 运行环境支持 [强烈建议使用 python 3.5+]
@@ -36,7 +36,7 @@ Hello Scrapy, I use Python.
 > pip install scrapydweb
 ```
 
-### 二、项目运行初始化
+### 2. 项目运行初始化
 ``` 
 1) 看下上面的项目依赖 进行必要的安装
 或者 在根目录下执行下面的命令 一键安装 python lib 依赖
@@ -57,7 +57,7 @@ main.py 主spider 生产者 开启一个进程即可
 main_sub.py 从spider 消费者 可开启多个进程
 ```
 
-### 三、注意事项
+### 3. 常见问题
 
 #### 3.1 项目配置文件
 ``` 
@@ -112,12 +112,12 @@ Caused by SSLError("Can't connect to HTTPS URL because the SSL module is not ava
 
 ```
 
-## Python数据分析
+## 二、Python数据分析
 ``` 
 Numpy、Pandas、Matplotlib
 ```
 
-### 一、Pandas
+### 1. Pandas
 #### 1.1 基础
 - Series 
 ``` 
@@ -132,7 +132,7 @@ DataFrame 是增强型的二维数组，就像 Excel 中的表格，
 DataFrame 其实就是由3部分组成的，分别是 index、columns、values
 ```
 
-### 二、Matplotlib
+### 2. Matplotlib
 
 #### 2.1 画图展示
 - 2.1.1 开源公司TOP30
