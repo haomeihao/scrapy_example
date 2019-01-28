@@ -1,8 +1,8 @@
 [TOC]
 ## 一、Python爬虫框架Scrapy 
-- Life is Short, I use Python.
-
-- Hello Scrapy, I am Elon.
+``` 
+Life is Short, I use Python.
+```
 ![背景](file/background.jpg)
 
 ### 1. 项目依赖
@@ -113,7 +113,9 @@ Caused by SSLError("Can't connect to HTTPS URL because the SSL module is not ava
 ```
 
 ## 二、Python数据分析
-- Numpy、Pandas、Matplotlib
+``` 
+Numpy、Pandas、Matplotlib
+```
 
 ### 1. Pandas
 
