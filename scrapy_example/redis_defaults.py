@@ -22,5 +22,6 @@ REDIS_DUPEFILTER_KEY = '%(name)s:dupefilter'
 REDIS_ITEMS_KEY = '%(name)s:items'
 REDIS_REPLICA_KEY = '%(name)s:replica'
 REDIS_HOSTNAME_PID_COUNTER_KEY = '%(name)s:counter:%(hostname)s:%(pid)s'
+REDIS_ZSET_KEY = '%(name)s:zset'
 # for dev redis keys no permission
 REDIS_COUNTER_KEY_SET_KEY = '%(name)s:counter_key_set'

@@ -115,9 +115,10 @@ class ProxyDownloaderMiddleware(ScrapyExampleDownloaderMiddleware):
         proxy = request.meta.get('proxy', None)
         if proxy is None:
             proxy_list = settings.getlist('PROXY_LIST')
-            proxy = random.choice(proxy_list)
-            request.meta['proxy'] = proxy
-            spider.logger.info("None proxy set random proxy, " + log_simple_request(request))
+            if proxy_list:
+                proxy = random.choice(proxy_list)
+                request.meta['proxy'] = proxy
+                spider.logger.info("None proxy set random proxy, " + log_simple_request(request))
 
     def spider_opened(self, spider):
         spider.logger.info('ProxyDownloaderMiddleware Spider opened: %s' % spider.name)
@@ -154,11 +155,11 @@ class UserAgentDownloaderMiddleware(ScrapyExampleDownloaderMiddleware):
 
         # 一起在此 Downloader 处理 request.headers.Referer
         referer = request.headers.get('Referer', None)
-        if referer is None:
-            random_int = random.randint(0, 9)
-            referer = 'https://bj.5i5j.com/ershoufang/n' + str(random_int) + '/'
-            request.headers['Referer'] = referer
-            spider.logger.info("None Referer set random Referer, " + log_simple_request(request))
+        # if referer is None:
+            # random_int = random.randint(0, 9)
+            # referer = 'https://bj.5i5j.com/ershoufang/n' + str(random_int) + '/'
+            # request.headers['Referer'] = referer
+            # spider.logger.info("None Referer set random Referer, " + log_simple_request(request))
 
         # 默认 cookie 处理器 的 请求前置处理
         dont_merge_cookies = request.meta.get('dont_merge_cookies', False)

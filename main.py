@@ -12,8 +12,11 @@ from scrapy_example.utils import before_main_create_dir, before_main_remove_file
 # 注意这行代码必须加上 否则配置的输出文件路径有问题
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-# only modify this spider_name is ok
-spider_name = 'woaiwojia_list'
+# only modify this spider_name & start_url is ok
+# spider_name = 'woaiwojia_list'
+# start_url = 'https://bj.5i5j.com/ershoufang/'
+spider_name = 'oschina_company_list'
+start_url = 'https://www.oschina.net/company'
 
 # 1. before main create directory folder
 before_main_create_dir(spider_name=spider_name)
@@ -31,7 +34,7 @@ seed_init = RedisSeedInit(spider_name=spider_name)
 # spider_name='woaiwojia_list' need
 seed_init.delete_dupefilter_key()
 seed_init.delete_items_key()
-seed_init.push_start_urls_key(start_url='https://bj.5i5j.com/ershoufang/')
+seed_init.push_start_urls_key(start_url=start_url)
 
 # 5. execute scrapy crawl woaiwojia_list
 output_data = 'output/data/' + spider_name + '.json'

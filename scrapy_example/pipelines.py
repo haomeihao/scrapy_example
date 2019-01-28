@@ -53,6 +53,13 @@ class CustomRedisPipeline(RedisPipeline):
             counter_key = redis_defaults.REDIS_HOSTNAME_PID_COUNTER_KEY
             counter_key = counter_key % {'name': spider.name, 'hostname': socket.gethostname(), 'pid': str(os.getpid())}
             result = self.server.incr(counter_key)
+
+            # zset
+            zset_key = redis_defaults.REDIS_ZSET_KEY
+            zset_key = zset_key % {'name': spider.name}
+            zset_score = item.get('company_os_number')
+            zset_value = item.get('company_name')
+            result = self.server.zincrby(zset_key, zset_score, zset_value)
         if 'woaiwojia_list' == spider.name:
             start_urls_key = redis_defaults.START_URLS_KEY % {'name': spider.sub_name}
             house_info_list = item.get('house_info_list')
