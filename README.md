@@ -1,6 +1,8 @@
 [TOC]
 ## 一、Python爬虫框架Scrapy 
-- Hello Scrapy, Life is Short, I use Python.
+- Life is Short, I use Python.
+
+- Hello Scrapy, I am Elon.
 ![背景](file/background.jpg)
 
 ### 1. 项目依赖
