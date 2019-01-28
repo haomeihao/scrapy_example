@@ -1,11 +1,10 @@
 [TOC]
-## 一、Python爬虫框架Scrapy
-``` 
-Hello Scrapy, I use Python.
-```
+## 一、Python爬虫框架Scrapy 
+- Hello Scrapy, Life is Short, I use Python.
 ![背景](file/background.jpg)
 
 ### 1. 项目依赖
+
 #### 1.1 单机爬虫依赖
 ```
 1) python 3.5+ 运行环境支持 [强烈建议使用 python 3.5+]
@@ -109,15 +108,13 @@ pip is configured with locations that require TLS/SSL, however the ssl module in
 Caused by SSLError("Can't connect to HTTPS URL because the SSL module is not available.")
 
 把 Anaconda3 换成之前 系统安装的Python3.5之后 就没问题了
-
 ```
 
 ## 二、Python数据分析
-``` 
-Numpy、Pandas、Matplotlib
-```
+- Numpy、Pandas、Matplotlib
 
 ### 1. Pandas
+
 #### 1.1 基础
 - Series 
 ``` 
