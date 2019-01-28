@@ -25,8 +25,8 @@ class WoaiwojiaListSpider(CustomRedisSpider):
     meta = {'dont_merge_cookies': True}
     # 好像 和 CONCURRENT_REQUESTS 效果一样
     every_request_delay = 0
-    total_page_no = 30
-    every_sub_page_no = 30
+    total_page_no = 5
+    every_sub_page_no = 5
     plate_name = '二手房'
 
     def parse(self, response):

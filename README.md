@@ -3,6 +3,7 @@
 ``` 
 Hello Scrapy, I use Python.
 ```
+![背景](file/background.jpg)
 
 ### 一、项目依赖
 #### 1.1 单机爬虫依赖
@@ -12,6 +13,7 @@ Hello Scrapy, I use Python.
 2) 基于 python 的业界知名爬虫框架 scrapy
 > pip install scrapy
 ```
+
 #### 1.2 分布式爬虫依赖
 ```
 1) redis K-V中间件
@@ -75,10 +77,37 @@ redis key 相关的配置在 scrapy_example/redis_defaults.py
 不加账号和密码也可以，但是偶尔会提示输入账号密码，建议加上。
 ```
 
-#### 3.3 安装异常
+#### 3.3 安装异常(可忽略)
 ``` 
-  error: Microsoft Visual C++ 14.0 is required. Get it with "Microsoft Visual C+
+error: Microsoft Visual C++ 14.0 is required. Get it with "Microsoft Visual C+
 + Build Tools": https://visualstudio.microsoft.com/downloads/
 解决方案: https://blog.csdn.net/weixin_42057852/article/details/80857948
+
+error: command 'c:\\program files (x86)\\microsoft visual studio 14.0\\vc\\b in\\x86_amd64\\cl.exe' 
+failed with exit status 2
+解决方案: 离线下载 Twisted-18.9.0 进入目录 python setup.py install -> ok
+
+删除 requirements.txt 中的 Twisted==18.7.0
+再执行 pip install -r requirements.txt
+
+还是不行 解决方案见 https://blog.csdn.net/jiangyunsheng147/article/details/80449556
+去这个网站 https://www.lfd.uci.edu/~gohlke/pythonlibs/#twisted
+下载对应版本的whl文件 Twisted‑18.9.0‑cp37‑cp37m‑win_amd64.whl
+进入目录执行 pip install Twisted‑18.9.0‑cp37‑cp37m‑win_amd64.whl
+
+各种问题: 
+  File "O:\setup\Anaconda3\lib\site-packages\cryptography\hazmat\bindings\openssl\binding.py", line 172, in <module>
+    Binding.init_static_locks()
+  File "O:\setup\Anaconda3\lib\site-packages\cryptography\hazmat\bindings\openssl\binding.py", line 142, in init_static_locks
+    __import__("_ssl")
+ImportError: DLL load failed: 找不到指定的模块
+解决思路: https://blog.csdn.net/blueheart20/article/details/79612985
+总结: Python在跨平台、版本控制方面弱爆了，问题太多。
+
+pip is configured with locations that require TLS/SSL, however the ssl module in Python is not available.
+
+Caused by SSLError("Can't connect to HTTPS URL because the SSL module is not available.")
+
+把 Anaconda3 换成之前 系统安装的Python3.5之后 就没问题了
 
 ```
