@@ -113,4 +113,34 @@ Caused by SSLError("Can't connect to HTTPS URL because the SSL module is not ava
 ```
 
 ## Python数据分析
+``` 
+Numpy、Pandas、Matplotlib
+```
+
 ### 一、Pandas
+#### 1.1 基础
+- Series 
+``` 
+一种增强型的一维数组，与 Python 中的列表相似，
+由 index（索引）和 values（值）组成。
+
+```
+- DataFrame
+``` 
+DataFrame 是增强型的二维数组，就像 Excel 中的表格，
+有行标签和列表索引。
+DataFrame 其实就是由3部分组成的，分别是 index、columns、values
+```
+
+### 二、Matplotlib
+
+#### 2.1 画图展示
+- 2.1.1 开源公司TOP30
+![开源公司TOP30](file/oscompanytop30.png)
+
+- 2.1.2 开源公司TOP30
+![开源公司TOP30](file/myplotttop30.png)
+
+#### 2.2 常见问题
+- matplotlib 使用中文出现乱码请参考: 
+https://foofish.net/matplotlib_mess.html
