@@ -13,7 +13,12 @@ Life is Short, I use Python.
 安装 python 3.5+ 运行时环境
 2) 基于 python 的业界知名爬虫框架 scrapy
 > pip install scrapy
+
+3) scrapy-splash 增加抓取动态数据能力
+> pip install scrapy-splash
+
 ```
+- scrapy-splash参考: https://www.cnblogs.com/shaosks/p/6950358.html
 
 #### 1.2 分布式爬虫依赖
 ```
@@ -112,6 +117,17 @@ Caused by SSLError("Can't connect to HTTPS URL because the SSL module is not ava
 把 Anaconda3 换成之前 系统安装的Python3.5之后 就没问题了
 ```
 
+#### 3.4 代码异常
+``` 
+    from scrapy.shell import inspect_response
+    inspect_response(response, self)
+# 引入scrapy.shell会发生如下报错: 
+    traitlets.config.configurable.MultipleInstanceError: 
+    Multiple incompatible subclass instances of InteractiveShellEmbed are being created.
+# 解决方法:
+    > 暂时未解决
+```
+
 ## 二、Python数据分析
 ``` 
 Numpy、Pandas、Matplotlib
@@ -136,11 +152,12 @@ DataFrame 其实就是由3部分组成的，分别是 index、columns、values
 ### 2. Matplotlib
 
 #### 2.1 画图展示
-- 2.1.1 开源公司TOP30
-![开源公司TOP30](file/oscompanytop30.png)
+- 2.1.1 the most powerful os company top 30 sorted by oschina project count
+![最强开源公司TOP30](file/oscompanytop30.png)
 
-- 2.1.2 开源公司TOP30
-![开源公司TOP30](file/myplotttop30.png)
+- 2.1.2 the most hot os project top 30 sorted by oschina collection count
+![最火开源项目TOP30](file/hot_project_top30.png)
+
 
 #### 2.2 常见问题
 - matplotlib 使用中文出现乱码请参考: 

@@ -25,3 +25,7 @@ REDIS_HOSTNAME_PID_COUNTER_KEY = '%(name)s:counter:%(hostname)s:%(pid)s'
 REDIS_ZSET_KEY = '%(name)s:zset'
 # for dev redis keys no permission
 REDIS_COUNTER_KEY_SET_KEY = '%(name)s:counter_key_set'
+
+# Custom
+REDIS_COLLECT_ZSET_KEY = '%(name)s:zset_collect'
+REDIS_COMMENT_ZSET_KEY = '%(name)s:zset_comment'

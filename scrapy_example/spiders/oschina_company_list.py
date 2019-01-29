@@ -7,7 +7,7 @@ from scrapy_example.utils import *
 from scrapy_example.redis_spiders import CustomRedisSpider
 
 
-class OsChinaCompanySpider(CustomRedisSpider):
+class OsChinaCompanyListSpider(CustomRedisSpider):
     name = 'oschina_company_list'
     # 注意一定要写
     parent_name = ''
@@ -49,7 +49,7 @@ class OsChinaCompanySpider(CustomRedisSpider):
             company_header = company_content.css("div.header::text").extract_first()
             company_desc = company_content.css("div.description::text").extract_first()
 
-            company_os_number = company_desc.strip().split('：')[-1].strip()
+            company_os_number = company_desc.split('：')[-1].strip()
 
             print_log_info(title='Crawled scraped successfully from: ', content=response.url)
             yield {

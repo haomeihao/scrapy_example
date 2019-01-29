@@ -53,7 +53,7 @@ class CustomRedisMixin(RedisMixin):
 
             url = bytes_to_str(data, self.redis_encoding)
             seen = self.request_seen(url)
-            if seen and fail_flag :
+            if seen and fail_flag:
                 print_log_info(title='Request request_seen: ', content=url)
                 continue
 
@@ -61,15 +61,25 @@ class CustomRedisMixin(RedisMixin):
             transfer_data = {}
             if all_url_info_key:
                 url_id = get_url_id(url)
-                all_url_info_key = all_url_info_key % {'name': self.name, 'url_id': url_id}
-                result = self.server.hgetall(all_url_info_key)
-                if result:
-                    new_result = {}
-                    for key, value in result.items():
-                        new_result[key.decode()] = value.decode()
-                    referer = new_result.get('referer', '')
-                    publish_date = new_result.get('publish_date', '')
-                    transfer_data = {'publish_date': publish_date}
+                if url_id:
+                    all_url_info_key = all_url_info_key % {'name': self.name, 'url_id': url_id}
+                    result = self.server.hgetall(all_url_info_key)
+                    if result:
+                        new_result = {}
+                        for key, value in result.items():
+                            new_result[key.decode()] = value.decode()
+                        referer = new_result.get('referer', '')
+                        publish_date = new_result.get('publish_date', '')
+                        transfer_data = {'publish_date': publish_date}
+
+                url_str = []
+                url_str.append(url)
+                url_str.append("company=0&sort=favorite&lang=0&recommend=false")
+                if len(url.split("?")) > 1:
+                    url = "&".join(url_str)
+                else:
+                    url = "?".join(url_str)
+
             req = self.custom_make_request_from_url(url, referer, transfer_data)
             if req:
                 yield req

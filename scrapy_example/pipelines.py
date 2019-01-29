@@ -54,12 +54,6 @@ class CustomRedisPipeline(RedisPipeline):
             counter_key = counter_key % {'name': spider.name, 'hostname': socket.gethostname(), 'pid': str(os.getpid())}
             result = self.server.incr(counter_key)
 
-            # zset
-            zset_key = redis_defaults.REDIS_ZSET_KEY
-            zset_key = zset_key % {'name': spider.name}
-            zset_score = item.get('company_os_number')
-            zset_value = item.get('company_name')
-            result = self.server.zincrby(zset_key, zset_score, zset_value)
         if 'woaiwojia_list' == spider.name:
             start_urls_key = redis_defaults.START_URLS_KEY % {'name': spider.sub_name}
             house_info_list = item.get('house_info_list')
@@ -92,6 +86,41 @@ class CustomRedisPipeline(RedisPipeline):
                     "Redis common hmset ended, used " + str(end_time - start_time) + "seconds , " + referer)
         if 'woaiwojia_detail' == spider.name:
             pass
+
+        if 'oschina_company_list' == spider.name:
+            # zset
+            zset_key = redis_defaults.REDIS_ZSET_KEY
+            zset_key = zset_key % {'name': spider.name}
+            zset_score = item.get('company_os_number')
+            zset_value = item.get('company_name')
+            # 1. spider_name:zset_key
+            result = self.server.zincrby(zset_key, zset_score, zset_value)
+
+            # spider_sub_name start_urls_key
+            start_urls_key = redis_defaults.START_URLS_KEY % {'name': spider.sub_name}
+            company_url = item.get('company_url')
+            use_set = settings.getbool('REDIS_START_URLS_AS_SET', defaults.START_URLS_AS_SET)
+            # 2. spider_sub_name:start_urls_key
+            add_one = self.server.sadd if use_set else self.server.rpush
+            add_one(start_urls_key, company_url)
+
+        if 'oschina_company_detail' == spider.name:
+            # zset
+            zset_collect_key = redis_defaults.REDIS_COLLECT_ZSET_KEY
+            zset_collect_key = zset_collect_key % {'name': spider.name}
+            zset_collect_score = item.get('collect_count', 0)
+            zset_collect_value = item.get('project_name')
+            # 1. spider_name:zset_key
+            result = self.server.zincrby(zset_collect_key, zset_collect_score, zset_collect_value)
+
+            # zset
+            zset_comment_key = redis_defaults.REDIS_COMMENT_ZSET_KEY
+            zset_comment_key = zset_comment_key % {'name': spider.name}
+            zset_comment_score = item.get('comment_count', 0)
+            zset_comment_value = item.get('project_name')
+            # 1. spider_name:zset_key
+            result = self.server.zincrby(zset_comment_key, zset_comment_score, zset_comment_value)
+
         if 'init_retry' == item.get('retry_type'):
             data = item.get('retry_url', None)
             if data is not None:

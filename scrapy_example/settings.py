@@ -99,6 +99,8 @@ SPIDER_MIDDLEWARES = {
     # 'scrapy_example.middlewares.ScrapyExampleSpiderMiddleware': 200,
     'scrapy_example.middlewares.CustomHttpErrorSpiderMiddleware': 45,
     'scrapy.spidermiddlewares.httperror.HttpErrorMiddleware': 50,
+    # scrapy_splash
+    'scrapy_splash.SplashDeduplicateArgsMiddleware': 100,
 }
 
 # HTTPERROR_ALLOWED_CODES = [403, 302]
@@ -139,6 +141,9 @@ DOWNLOADER_MIDDLEWARES = {
     # 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware': 700,
     'scrapy_example.middlewares.CookieJarDownloaderMiddleware': 710,
     'scrapy_example.middlewares.CookieDownloaderMiddleware': 720,
+    # scrapy_splash
+    'scrapy_splash.SplashCookiesMiddleware': 723,
+    'scrapy_splash.SplashMiddleware': 725,
 }
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html

@@ -12,7 +12,8 @@ from scrapy_example.utils import before_main_create_dir, before_main_remove_file
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 # only modify this spider_name is ok
-spider_name = 'woaiwojia_detail'
+# spider_name = 'woaiwojia_detail'
+spider_name = 'oschina_company_detail'
 
 # 1. before main create directory folder
 before_main_create_dir(spider_name=spider_name)

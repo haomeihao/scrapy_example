@@ -77,20 +77,24 @@ r = redis.Redis(connection_pool=pool)
 # [print(process_decode(item)) for item in result]
 
 def tuple_to_dict(tuple_data):
-    return {"company_name": tuple_data[0], "company_os_number": int(tuple_data[1])}
+    return {"project_name": tuple_data[0], "collect_count": int(tuple_data[1])}
 
 
-def page_print():
-    print(" " * 20 + "开源项目公司排行榜")
-    key = 'oschina_company_list:zset'
+def page_result():
+    total_result = []
+    print(" " * 20 + "最火开源项目排行榜")
+    key = 'oschina_company_detail:zset_collect'
     limit = 10
-    for index in range(0, 7):
+    for index in range(0, 3):
         offset = index * limit
         rev_result = r.zrevrangebyscore(name=key, min=0, max=1 << 31, start=offset, num=limit, withscores=True)
         final_result = [(tuple_to_dict(process_decode(item))) for item in rev_result]
+        total_result.extend(final_result)
         [print(item) for item in final_result]
         print("-" * 24 + " 第 " + str(index + 1) + " 页 " + "-" * 24)
 
+    return total_result
+
 
 if __name__ == '__main__':
-    page_print()
+    page_result()

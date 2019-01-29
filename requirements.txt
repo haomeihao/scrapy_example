@@ -9,3 +9,4 @@ scrapy-redis-bloomfilter==0.7.0
 scrapyd==1.2.0
 scrapyd-client==1.1.0
 scrapydweb==0.9.2
+scrapy-splash==0.7.2
