@@ -22,7 +22,7 @@ Life is Short, I use Python.
 
 #### 1.2 分布式爬虫依赖
 ```
-1) redis K-V中间件
+1) redis K-V中间件 https://github.com/MSOpenTech/redis/releases
 安装 redis-server 下载压缩包，解压即可用
 2) python 的 redis 客户端库 redis-py [官网唯一打星的]
 > pip install redis
@@ -46,7 +46,10 @@ Life is Short, I use Python.
 ``` 
 1) 看下上面的项目依赖 进行必要的安装
 或者 在根目录下执行下面的命令 一键安装 python lib 依赖
+remove Twisted==18.7.0
 > pip install -r requirements.txt
+https://www.douban.com/note/672475302/?start=0
+> pip install -r requirements.txt -i https://pypi.doubanio.com/simple 
 注意: 分布式爬虫要安装 redis-server
 
 2) 启动 redis-server
@@ -97,7 +100,7 @@ failed with exit status 2
 再执行 pip install -r requirements.txt
 
 还是不行 解决方案见 https://blog.csdn.net/jiangyunsheng147/article/details/80449556
-去这个网站 https://www.lfd.uci.edu/~gohlke/pythonlibs/#twisted
+去这个网站 https://www.lfd.uci.edu/~gohlke/pythonlibs/#twisted | https://www.lfd.uci.edu/~gohlke/pythonlibs/#twisted
 下载对应版本的whl文件 Twisted‑18.9.0‑cp37‑cp37m‑win_amd64.whl
 进入目录执行 pip install Twisted‑18.9.0‑cp37‑cp37m‑win_amd64.whl
 
@@ -115,6 +118,8 @@ pip is configured with locations that require TLS/SSL, however the ssl module in
 Caused by SSLError("Can't connect to HTTPS URL because the SSL module is not available.")
 
 把 Anaconda3 换成之前 系统安装的Python3.5之后 就没问题了
+
+> pip install pypiwin32 -i https://pypi.doubanio.com/simple
 ```
 
 #### 3.4 代码异常

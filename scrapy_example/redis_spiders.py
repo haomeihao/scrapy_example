@@ -23,7 +23,8 @@ class CustomRedisMixin(RedisMixin):
 
     def request_seen(self, url):
         # replace request url
-        new_url = url.split('?')[0]
+        # new_url = url.split('?')[0] todo 先注释掉
+        new_url = url
 
         request = Request(url=new_url)
         fp = request_fingerprint(request)

@@ -15,8 +15,10 @@ sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 # only modify this spider_name & start_url is ok
 # spider_name = 'woaiwojia_list'
 # start_url = 'https://bj.5i5j.com/ershoufang/'
-spider_name = 'oschina_company_list'
-start_url = 'https://www.oschina.net/company'
+# spider_name = 'oschina_company_list'
+# start_url = 'https://www.oschina.net/company'
+spider_name = 'github_list'
+start_url = 'https://github.com/search?q=stars%3A>30000+language%3Ajava'
 
 # 1. before main create directory folder
 before_main_create_dir(spider_name=spider_name)
@@ -38,5 +40,6 @@ seed_init.push_start_urls_key(start_url=start_url)
 
 # 5. execute scrapy crawl woaiwojia_list
 output_data = 'output/data/' + spider_name + '.json'
-output_log = '--logfile=output/logs/' + spider_name + '.log'
-execute(['scrapy', 'crawl', spider_name, '-o', output_data, output_log])
+# output_log = '--logfile=output/logs/' + spider_name + '.log'
+# execute(['scrapy', 'crawl', spider_name, '-o', output_data, output_log])
+execute(['scrapy', 'crawl', spider_name, '-o', output_data])
