@@ -43,13 +43,22 @@ COOKIES_DEBUG = True
 
 # Override the default request headers:
 DEFAULT_REQUEST_HEADERS = {
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
-    'Accept-Encoding': 'gzip, deflate, br',
-    'Accept-Language': 'zh-CN,zh;q=0.9',
-    'Cache-Control': 'max-age=0',
-    'Connection': 'keep-alive',
-    'Upgrade-Insecure-Requests': 1,
+    # 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+    # 'Accept-Encoding': 'gzip, deflate, br',
+    # 'Accept-Language': 'zh-CN,zh;q=0.9',
+    # 'Cache-Control': 'max-age=0',
+    # 'Connection': 'keep-alive',
+    # 'Upgrade-Insecure-Requests': 1,
     # 'User-Agent': '"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.11 (KHTML, like Gecko) Chrome/17.0.963.56 Safari/535.11",'
+
+    ":authority": "www.mfcclub.com",
+    ":scheme": "https",
+    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
+    "accept-encoding": "gzip, deflate, br",
+    "accept-language": "zh-CN,zh;q=0.9",
+    "alexatoolbar-alx_ns_ph": "AlexaToolbar/alx-4.0.3",
+    "cache-control": "max-age=0",
+    "upgrade-insecure-requests": 1
 }
 PROXY_LIST = [
     # 'http://账号:密码@IP:PORT',
@@ -103,7 +112,7 @@ SPIDER_MIDDLEWARES = {
     'scrapy_splash.SplashDeduplicateArgsMiddleware': 100,
 }
 
-# HTTPERROR_ALLOWED_CODES = [403, 302]
+HTTPERROR_ALLOWED_CODES = [302, 403, 503]
 
 HTTPERROR_RETRY_ENABLED = True
 HTTPERROR_RETRY_TIMES = 2
@@ -142,8 +151,8 @@ DOWNLOADER_MIDDLEWARES = {
     'scrapy_example.middlewares.CookieJarDownloaderMiddleware': 710,
     'scrapy_example.middlewares.CookieDownloaderMiddleware': 720,
     # scrapy_splash
-    'scrapy_splash.SplashCookiesMiddleware': 723,
-    'scrapy_splash.SplashMiddleware': 725,
+    # 'scrapy_splash.SplashCookiesMiddleware': 723,
+    # 'scrapy_splash.SplashMiddleware': 725,
 }
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html

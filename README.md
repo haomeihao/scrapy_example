@@ -42,7 +42,9 @@ Life is Short, I use Python.
 > pip install scrapydweb
 ```
 
-### 2. 项目运行初始化
+### 2. 高可用爬虫能力建设
+
+#### 2.1 项目运行初始化
 ``` 
 1) 看下上面的项目依赖 进行必要的安装
 或者 在根目录下执行下面的命令 一键安装 python lib 依赖
@@ -65,6 +67,27 @@ https://www.douban.com/note/672475302/?start=0
 main.py 主spider 生产者 开启一个进程即可
 main_sub.py 从spider 消费者 可开启多个进程
 ```
+
+#### 2.2 反爬虫策略之 IP Proxy Pool
+``` 
+
+```
+
+#### 2.3 反爬虫策略之 Random User Agent 
+``` 
+
+```
+
+#### 2.4 反爬虫策略之 Cookie Process
+``` 
+
+```
+
+#### 2.5 反爬虫策略之 验证码识别
+``` 
+
+```
+
 
 ### 3. 常见问题
 

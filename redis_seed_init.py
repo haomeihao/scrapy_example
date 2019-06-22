@@ -34,8 +34,9 @@ class RedisSeedInit(object):
         result = self.redis_cli.delete(dupefilter_key)
         self.print_result(result)
 
-    def delete_items_key(self):
-        items_key = redis_defaults.REDIS_ITEMS_KEY % {'name': self.spider_name}
+    def delete_items_key(self, items_key=''):
+        if not items_key:
+            items_key = redis_defaults.REDIS_ITEMS_KEY % {'name': self.spider_name}
 
         command = "DEL " + items_key
         self.print_command(command)

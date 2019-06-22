@@ -19,6 +19,7 @@ from scrapy.utils.response import response_status_message
 from scrapy_example import redis_defaults
 from scrapy_example.utils import *
 from scrapy_example.redis_connection_pool import pool
+from crawl_xici_ip import get_random_ip
 
 settings = get_project_settings()
 
@@ -114,11 +115,12 @@ class ProxyDownloaderMiddleware(ScrapyExampleDownloaderMiddleware):
         # 每次请求都随机切换 proxy
         proxy = request.meta.get('proxy', None)
         if proxy is None:
-            proxy_list = settings.getlist('PROXY_LIST')
-            if proxy_list:
-                proxy = random.choice(proxy_list)
-                request.meta['proxy'] = proxy
-                spider.logger.info("None proxy set random proxy, " + log_simple_request(request))
+        #     proxy_list = settings.getlist('PROXY_LIST')
+        #     if proxy_list:
+        #         proxy = random.choice(proxy_list)
+            proxy = get_random_ip()
+            request.meta['proxy'] = proxy
+            spider.logger.info("None proxy set random proxy, " + log_simple_request(request))
 
     def spider_opened(self, spider):
         spider.logger.info('ProxyDownloaderMiddleware Spider opened: %s' % spider.name)

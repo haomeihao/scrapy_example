@@ -30,7 +30,9 @@ class CustomRedisMixin(RedisMixin):
         fp = request_fingerprint(request)
         dupefiler_key = redis_defaults.REDIS_DUPEFILTER_KEY % {'name': self.name}
         added = self.server.sadd(dupefiler_key, fp)
-        return added == 0
+        # return added == 0
+
+        return False
 
     def next_requests(self):
         all_url_info_key = self.settings.get('ALL_URL_INFO_KEY', redis_defaults.ALL_URL_INFO_KEY)
@@ -73,13 +75,13 @@ class CustomRedisMixin(RedisMixin):
                         publish_date = new_result.get('publish_date', '')
                         transfer_data = {'publish_date': publish_date}
 
-                url_str = []
-                url_str.append(url)
-                url_str.append("company=0&sort=favorite&lang=0&recommend=false")
-                if len(url.split("?")) > 1:
-                    url = "&".join(url_str)
-                else:
-                    url = "?".join(url_str)
+                # url_str = []
+                # url_str.append(url)
+                # url_str.append("company=0&sort=favorite&lang=0&recommend=false")
+                # if len(url.split("?")) > 1:
+                #     url = "&".join(url_str)
+                # else:
+                #     url = "?".join(url_str)
 
             req = self.custom_make_request_from_url(url, referer, transfer_data)
             if req:
